@@ -10,6 +10,20 @@
     <script src="draw.js"></script>
     <script src="parse.js"></script>
     <script src="util.js"></script>
+    <script type="text/javascript">
+        function validate(){
+          if (isNaN(parseFloat(document.getElementById('firstX'))) || isNaN(parseFloat(document.getElementById('step')))||isNaN(parseFloat(document.getElementById('count'))) || isNaN(parseFloat(document.getElementById('pointtoChange')))){
+            alert("wrong input, try again");
+            return true;
+          }else if (parseFloat(document.getElementById('firstX') <= 16 ) {
+            alert("too much points to draw");
+            return true;
+          }else {
+            interpolate();
+            return false;
+          }
+        }
+    </script>
 </head>
 <body>
 <div class="header">
@@ -23,7 +37,7 @@
     <div class="main-component-layout">
         
         <div class="main-component">
-            <button type="button" onclick="interpolate()">Интерполировать</button>
+            <button type="button" onclick="return validate();">Интерполировать</button>
             <label id="input-error-label"></label>
             <p><input id="sin" name="type" type="radio" value="sin" checked> sin(x)*x </p>
             <p><input id="square" name="type" type="radio" value="square"> x^2 test message</p>
